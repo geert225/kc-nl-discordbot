@@ -27,7 +27,7 @@ module.exports = {
       argsstr = "";
       if(cmd.options.args.length > 0){
         cmd.options.args.forEach(arg => {
-          argsstr += `*__${arg}__*`;
+          argsstr += `*__${arg}__* `;
         });
       }
       this.fields.push({
