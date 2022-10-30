@@ -8,7 +8,12 @@ module.exports = {
             "User",
         ],
         neededargs : 0,
-        roles : [],
+        roles : [
+            '1032618260014841866',
+            '1032618260014841866',
+            '1032618260014841866',
+            '1032618260014841866'
+        ],
         admincmd : false,
         privatecmd : false,
         avalibleinhelp : true
