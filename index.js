@@ -36,11 +36,13 @@ if(client.commands.has('help') && client.commands.has('modhelp')){
   const helpcmd = client.commands.get('help');
   const modhelpcmd = client.commands.get('modhelp');
   client.commands.forEach(cmd => {
-    modhelpcmd.pushcmd(cmd);
-    if(cmd.options.avalibleinhelp) helpcmd.pushcmd(cmd);
+    if(cmd.options.avalibleinhelp){
+      helpcmd.pushcmd(cmd);
+    }else{
+      modhelpcmd.pushcmd(cmd);
+    }
   });
 } 
-
 
 /*
   Command executing service service

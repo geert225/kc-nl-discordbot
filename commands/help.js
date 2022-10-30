@@ -14,6 +14,7 @@ module.exports = {
     },
     description: 'help menu',
     execute(message, args) {
+      message.delete();
       const helpembed = new Discord.MessageEmbed()
         .setTitle('Koleka Charters NL bot commands')
         .setDescription('All commands.')
@@ -21,7 +22,7 @@ module.exports = {
         .setFooter('©Koleka Charters NL 2022-2023', '')
         .addFields(this.fields)
         .setTimestamp();
-      message.channel.send(helpembed);
+        message.channel.send(helpembed).then(msg => {msg.delete({ timeout: 10000 })});;
     },
     pushcmd(cmd){
       argsstr = "";
