@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const urlchecker = require('../functions/urlchecker');
-const role = '705480865785839617';
+const role = '1004116254304505997';
 
 module.exports = {
     name: 'planconvoy',
