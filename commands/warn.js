@@ -1,6 +1,7 @@
 const warnings = require('../warnings');
 const color = '166b9b'
-
+const Discord = require('discord.js');
+const fs = require("fs");
 module.exports = {
     name: 'warn',
     options: {
@@ -62,7 +63,7 @@ module.exports = {
     .setTimestamp()
     .setFooter('©Koleka Charters NL 2022-2023', '')
     target.send(dmwarnembed)
-
+    console.log(target)
 
     warnings[target.id].warnings = warnamount
     fs.writeFile("./warnings.json", JSON.stringify(warnings), (err) => {

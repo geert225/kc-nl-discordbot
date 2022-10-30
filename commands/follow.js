@@ -1,6 +1,6 @@
 const userdata = require('../userdata');
 const color = '166b9b'
-
+const Discord = require('discord.js');
 module.exports = {
     name: 'follow',
     options: {

@@ -9,9 +9,13 @@ module.exports = {
         roles : [
             '705480865785839617' // id's van rollen die dit commando mogen uitvoeren
         ],
+        /*perms : [ // nog niet geintergreed TODO!
+
+        ],*/
         admincmd : true, //mag commando alleen worden uitgevoerd door admins
         privatecmd : false, //is dit commando voor dm's alleen
-        avalibleinhelp : true
+        avalibleinhelp : true //wordt dit commando weergeven in het help commando
+
     },
     description: 'beschrijving van commando voor help menu',
     execute(message, args) {

@@ -1,11 +1,3 @@
-const userdata = require('../userdata');
-const warnings = require('../warnings');
-const fs = require("fs");
-const prefix = process.env.PREFIX
-const color = '370000'
-const Discord = require('discord.js');
-const client = new Discord.Client();
-
 module.exports = {
     name: 'playzng',
     options: {

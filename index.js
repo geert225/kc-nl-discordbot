@@ -67,7 +67,6 @@ client.on('message', async (message) => {
       let result = false;
       if(message.guild.members.cache.has(message.author.id)){
           let member = message.guild.members.cache.get(message.author.id)
-          console.log(member.roles.cache)
           cmd.options.roles.forEach(role => {
             if(member.roles.cache.has(role)){
               result = true;
@@ -265,6 +264,7 @@ client.on('message', async (message) => {
 })
 //say commands
 client.on('message', message => {
+  if(message.author.bot) return;
   if (!message.member.hasPermission("ADMINISTRATOR")) return;
   if (message.content.startsWith(prefix + 'say'))
   {
