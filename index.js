@@ -177,7 +177,7 @@ let nxtlvl = userdata[message.author.id].level * 800;
 userdata[message.author.id].xp = curxp + xpadd;
 if(nxtlvl <= userdata[message.author.id].xp){
  userdata[message.author.id].level = curlvl +1;
- message.guild.channels.cache.get(levelup).send(`${message.author}, You have leveld up! New level:**${curlvl}**`)
+ //message.guild.channels.cache.get(levelup).send(`${message.author}, You have leveld up! New level:**${curlvl}**`)
 }
 fs.writeFile("./userdata.json", JSON.stringify(userdata), (err) => {
  if(err) console.log(err)}

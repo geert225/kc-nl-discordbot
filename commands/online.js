@@ -11,6 +11,5 @@ module.exports = {
     description: 'check how many users are online',
     execute(message, args) {
         message.channel.send(`**Online members:** ${message.guild.memberCount}`);
-    },
-   
+    }
 };
