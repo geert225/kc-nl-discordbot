@@ -7,8 +7,8 @@ module.exports = {
     options: {
         args : [
             "img URL",
+            "channel ID",
             "dm Type",
-            "channel",
             "description",
         ],
         neededargs : 4,
@@ -17,7 +17,7 @@ module.exports = {
         privatecmd : false,
         avalibleinhelp : false
     },
-    description: 'plan a convoy',
+    description: '__Img URL:__ link naar het plaatje onder bericht, \n__channel ID:__ ID van kanaal waar hoofd bericht wordt geplaatst, \n__dm Type:__ \n    none (niemand krijgt het bericht in de dm)\n    vtc (alle personen met de vtc rol krijgen een dm)\n    all (iedereen krijt een bericht in dm)\n__description:__ text wat in het bericht moet staan',
     execute(message, args) {
         const descriptiontext = args.slice(3).join(" ");
         if(!urlchecker(args[0])){
