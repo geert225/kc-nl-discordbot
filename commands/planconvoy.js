@@ -18,8 +18,10 @@ module.exports = {
             "description",
         ],
         neededargs : 0,
-        roles : [],
-        admincmd : true,
+        roles : [
+            "1004000886131003465"
+        ],
+        admincmd : false,
         privatecmd : false,
         avalibleinhelp : false
     },
