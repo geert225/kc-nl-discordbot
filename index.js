@@ -49,7 +49,17 @@ if(client.commands.has('help') && client.commands.has('modhelp')){
 */
 //cmd executer v2
 client.on('message', async (message) => {
-  if (!message.content.startsWith(config.prefix) || message.author.bot) return;
+  if(message.author.bot) return;
+  if(client.commands.has("planconvoy")){
+    const planner = client.commands.get("planconvoy");
+    if(planner.commandActive){
+      if(planner.activeUser == message.author.id){
+        planner.messageExtension(message);
+        return;
+      }
+    }
+  }
+  if(!message.content.startsWith(config.prefix)) return;
   const args = message.content.slice(config.prefix.length).trim().split(/ +/);
   const command = args.shift().toLocaleLowerCase();
   if (!client.commands.has(command)) return;
