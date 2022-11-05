@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const config = require('./bot.config.json')
 
 module.exports = class{
     constructor(client, workingDir){
@@ -7,7 +8,7 @@ module.exports = class{
         this.eventlist = [];
         this.FindFiles(workingDir);
         for (let i = 0; i < this.eventlist.length; i++) {
-            const event = require(`.\\${this.eventlist[i]}`);
+            const event = require(`${((config.SYSTEM == 'WIN') ? '.\\' : './')}${this.eventlist[i]}`);
             this.client.events.set(event.name, event);
             event.client = this.client
             this.client.on(event.event, event.execute.bind(event))

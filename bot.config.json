@@ -1,12 +1,12 @@
 {
     "Channels" : {
-        "WelkomChannel" : "705479205458149468",
-        "LeaveChannel" : "705479205458149468",
+        "WelkomChannel" : "1004000886932131841",
+        "LeaveChannel" : "",
         "LevelChannel" : "",
         "warnChannel" : "770913621399044096"
     },
     "Guild" : {
-        "ID" : "699698617128189963"
+        "ID" : "1004000885740941354"
     },
     "ImageUrl" : {
         "Logo" : "https://cdn.discordapp.com/attachments/1017173449728327701/1017924187756703775/done_koleka_charters.png",
@@ -24,8 +24,8 @@
         "FooterText" : "©Koleka Charters NL 2022-2023"
     },
     "Roles" : {
-        "Member" : "",
-        "Outsider" : "705490802893258752"
-    }
-
+        "Member" : "1004116254304505997",
+        "Outsider" : "1004108639054864414"
+    },
+    "SYSTEM" : "WIN"
 }

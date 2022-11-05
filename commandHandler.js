@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-
 const config = require('./bot.config.json')
 
 module.exports = class{
@@ -10,7 +9,7 @@ module.exports = class{
         this.cmdlist = [];
         this.FindFiles(workingDir);
         for (let i = 0; i < this.cmdlist.length; i++) {
-            const command = require(`.\\${this.cmdlist[i]}`);
+            const command = require(`${((config.SYSTEM == 'WIN') ? '.\\' : './')}${this.cmdlist[i]}`);
             this.client.commands.set(command.name, command);
         }
         if (this.client.commands.has("help") && this.client.commands.has("modhelp")) {

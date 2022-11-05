@@ -28,7 +28,6 @@ module.exports = {
        }
        args.shift()
 
-
     const user = message.member
     const reason = args.join(' ')
     if (!reason){
