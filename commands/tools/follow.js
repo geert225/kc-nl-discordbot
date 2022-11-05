@@ -1,6 +1,7 @@
-const userdata = require('../userdata');
-const color = '166b9b'
-const Discord = require('discord.js');
+const userdata = require('../../userdata.json');
+const config = require('../../bot.config.json');
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
     name: 'follow',
     options: {
@@ -35,12 +36,12 @@ module.exports = {
         var tmpid
         while (tmpid = regex.exec(data)) {
         var followlink = 'https://map.truckersmp.com/?follow=' + tmpid[0]
-        const followembed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
         .setDescription(`You can follow the user ${user} via the link. \n ${followlink}`)
-        .setColor(color)
-        .setFooter('©Koleka Charters NL 2022-2023', '')
+        .setColor(config.Colors.MainEmbed)
+        .setFooter(config.General.FooterText, '')
         .setTimestamp();
-        message.channel.send(followembed)
+        message.channel.send(embed)
         } 
     }
 };

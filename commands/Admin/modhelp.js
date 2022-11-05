@@ -1,6 +1,5 @@
-const prefix = process.env.PREFIX
-const color = '166b9b'
-const Discord = require('discord.js');
+const config = require('../../bot.config.json');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'modhelp',
@@ -15,11 +14,11 @@ module.exports = {
     description: 'help command for moderation stuff',
     execute(message, args) {
       message.delete();
-      const helpembed = new Discord.MessageEmbed()
+      const helpembed = new MessageEmbed()
         .setTitle('Koleka Charters NL bot commands')
         .setDescription('All commands.')
-        .setColor(color)
-        .setFooter('©Koleka Charters NL 2022-2023', '')
+        .setColor(config.Colors.MainEmbed)
+        .setFooter(config.General.FooterText, '')
         .addFields(this.fields)
         .setTimestamp();
       message.channel.send(helpembed).then(msg => {msg.delete({ timeout: 10000 })});;
@@ -32,7 +31,7 @@ module.exports = {
         });
       }
       this.fields.push({
-        name: `${prefix}${cmd.name} ${argsstr}`,
+        name: `${config.General.Prefix}${cmd.name} ${argsstr}`,
         value:  cmd.description
       })
     },

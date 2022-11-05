@@ -1,3 +1,6 @@
+const config = require('../../bot.config.json');
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
     name: 'avatar',
     options: {
@@ -11,17 +14,13 @@ module.exports = {
       avalibleinhelp : true
     },
     description: 'Get the avatar from a user',
-    execute(message, args) {
-        if (!message.guild) return;
-        const prefix = process.env.PREFIX
-        const color = '166b9b'
-        const Discord = require('discord.js');
+    execute(message, args) {        
         const user = message.mentions.users.first() || message.author;
-        const avatarembed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
         .setTitle(`${user.username} zijn avatar.`)
-        .setColor(color)
+        .setColor(config.Colors.MainEmbed)
         .setImage(user.displayAvatarURL())
-      message.channel.send(avatarembed);
+      message.channel.send(embed);
         
 
     },

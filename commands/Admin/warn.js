@@ -1,7 +1,9 @@
-const warnings = require('../warnings');
-const color = '166b9b'
-const Discord = require('discord.js');
-const fs = require("fs");
+
+const { MessageEmbed } = require('discord.js');
+const config = require('../../bot.config.json');
+const { updateFile } = require('../../functions/updateFile');
+const userdata = require('../../userdata.json');
+
 module.exports = {
     name: 'warn',
     options: {
@@ -26,20 +28,16 @@ module.exports = {
        }
        args.shift()
 
-    const guildid = message.guild.id
+
     const user = message.member
-    const add = 1
-    const userid = message.member.id
     const reason = args.join(' ')
     if (!reason){
         message.channel.send(':exclamation:Please specify a reason.').then(msg => {msg.delete({ timeout: 10000 })});return;
     }
-    const warnamount = Math.floor(warnings[target.id].warnings) + add
-    console.log(warnings[target.id].warnings)    
-    const warnchannel = '735954137555927082'
+    const warnamount = Math.floor(userdata[target.id].warnings) + 1
 
-    const warnembed = new Discord.MessageEmbed()
-    .setColor(color)
+    const warnembed = new MessageEmbed()
+    .setColor(config.Colors.MainEmbed)
     .setTitle(`:warning:WARNING!`)
     .addFields(
         { name: 'Warned user:', value: `${target}` },
@@ -48,12 +46,16 @@ module.exports = {
         { name: 'total warns:', value: `${warnamount}` }
       )
     .setTimestamp()
-    .setFooter('©Koleka Charters NL 2022-2023', '')
-    message.guild.channels.cache.get(warnchannel).send(warnembed)
-    message.author.send(`:white_check_mark: ${target} has been warned!`)
+    .setFooter(config.General.FooterText, '')
 
-    const dmwarnembed = new Discord.MessageEmbed()
-    .setColor(color)
+    const loggingchannel = message.guild.channels.cache.get(config.Channels.warnChannel);
+    if(loggingchannel){
+        loggingchannel.send(warnembed);
+    }
+    message.author.send(((loggingchannel) ? `:white_check_mark: ${target} has been warned and warn has been logged!` : `:white_check_mark: ${target} has been warned!`))
+
+    const dmwarnembed = new MessageEmbed()
+    .setColor(config.Colors.MainEmbed)
     .setTitle(`:warning:WARNING!`)
     .setDescription(`You have been warned!`)
     .addFields(
@@ -61,17 +63,10 @@ module.exports = {
         { name: 'total warns:', value: `${warnamount}` }
       )
     .setTimestamp()
-    .setFooter('©Koleka Charters NL 2022-2023', '')
+    .setFooter(config.General.FooterText, '')
     target.send(dmwarnembed)
-    console.log(target)
 
-    warnings[target.id].warnings = warnamount
-    fs.writeFile("./warnings.json", JSON.stringify(warnings), (err) => {
-        if(err) console.log(err)}
-        )
-    console.log(warnamount)
-    
-    
-    },
-   
+    userdata[target.id].warnings = warnamount
+    updateFile('./userdata.json', userdata);
+    }
 };

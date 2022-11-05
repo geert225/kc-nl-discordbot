@@ -1,0 +1,31 @@
+{
+    "Channels" : {
+        "WelkomChannel" : "705479205458149468",
+        "LeaveChannel" : "705479205458149468",
+        "LevelChannel" : "",
+        "warnChannel" : "770913621399044096"
+    },
+    "Guild" : {
+        "ID" : "699698617128189963"
+    },
+    "ImageUrl" : {
+        "Logo" : "https://cdn.discordapp.com/attachments/1017173449728327701/1017924187756703775/done_koleka_charters.png",
+        "Welkom" : "https://cdn.discordapp.com/attachments/740944420484022283/1032632887146721320/www.KolekaChartersVTC.nl_5.gif",
+        "GM" : "https://media.giphy.com/media/UyvYVo9Zs150n977Vl/giphy.gif",
+        "GA" : "https://media.giphy.com/media/zpI81NICObA2OuGx3s/giphy.gif",
+        "GN" : "https://media.giphy.com/media/MKtl8U2j06x0PyI4XU/giphy.gif",
+        "UserProfile" : "https://media.discordapp.net/attachments/1004000887309602897/1034236637460316300/20221025001334_1.jpg?width=1191&height=670"
+    },
+    "Colors" :{
+        "MainEmbed" : "166b9b"
+    },
+    "General" : {
+        "Prefix" : "!",
+        "FooterText" : "©Koleka Charters NL 2022-2023"
+    },
+    "Roles" : {
+        "Member" : "",
+        "Outsider" : "705490802893258752"
+    }
+
+}

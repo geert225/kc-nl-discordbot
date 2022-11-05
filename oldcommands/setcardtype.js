@@ -1,4 +1,4 @@
-const card = require('../card.json');
+const card = require('../../card.json');
 
 module.exports = {
     name: 'setcardtype',

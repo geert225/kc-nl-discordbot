@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const fetch = require('node-fetch');
-const color = '166b9b'
+const config = require('../../bot.config.json');
 
 module.exports = {
     name: 'tmpstate',
@@ -52,8 +52,8 @@ module.exports = {
 
         const embed = new Discord.MessageEmbed()
         .setTitle(`Truckersmp ${title} server status`)
-        .setColor(color)
-        .setFooter('©Koleka Charters NL 2022-2023', '')
+        .setColor(config.Colors.MainEmbed)
+        .setFooter(config.General.FooterText, '')
         .addFields(fields)
         .setTimestamp(Date.now());
         message.channel.send(embed);

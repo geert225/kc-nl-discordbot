@@ -1,5 +1,7 @@
+const config = require('../../bot.config.json');
+
 module.exports = {
-    name: 'gn',
+    name: 'ga',
     options: {
         args : [],
         neededargs : 0,
@@ -8,9 +10,10 @@ module.exports = {
         privatecmd : false,
         avalibleinhelp : true
     },
-    description: 'Send a cool gif (gn)',
+    description: 'Send a cool gif (ga)',
     execute(message, args) {
-        const gn = 'https://media.giphy.com/media/MKtl8U2j06x0PyI4XU/giphy.gif'
-        message.channel.send(gn)
-    }
+        const ga = config.ImageUrl.GA;
+        message.channel.send(ga)
+    },
+   
 };

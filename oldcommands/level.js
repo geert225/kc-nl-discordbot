@@ -1,5 +1,5 @@
-const userdata = require('../userdata');
-const card = require('../card.json');
+const userdata = require('../../userdata.json');
+const card = require('../../card.json');
 const canvacord = require("canvacord");
 module.exports = {
     name: 'level',
