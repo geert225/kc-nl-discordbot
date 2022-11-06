@@ -21,7 +21,8 @@ module.exports = {
   description: "show your level banner",
   execute(message, args) {
     const user = message.mentions.users.first() || message.author;
-    let nxtlvl = userdata[message.author.id].level * 800;
+    let xpsubtracktor = (userdata[message.author.id].level * 800)-800;
+    if(xpsubtracktor <= 0) xpsubtracktor = 0;
     if (!userdata[user.id]) {
       message.channel
         .send(":exclamation:user has no xp! try sending a message.")
@@ -51,8 +52,8 @@ module.exports = {
     if (markup.useimg) {
       rank = new canvacord.Rank()
         .setAvatar(user.displayAvatarURL({ dynamic: false, format: "png" }))
-        .setCurrentXP(userdata[user.id].xp)
-        .setRequiredXP(nxtlvl)
+        .setCurrentXP(userdata[user.id].xp - xpsubtracktor)
+        .setRequiredXP(800)
         .setProgressBar(markup.color, "COLOR")
         .setUsername(user.username)
         .setDiscriminator(user.discriminator)
@@ -61,8 +62,8 @@ module.exports = {
     } else {
       rank = new canvacord.Rank()
         .setAvatar(user.displayAvatarURL({ dynamic: false, format: "png" }))
-        .setCurrentXP(userdata[user.id].xp)
-        .setRequiredXP(nxtlvl)
+        .setCurrentXP(userdata[user.id].xp - xpsubtracktor)
+        .setRequiredXP(800)
         .setProgressBar(markup.color, "COLOR")
         .setUsername(user.username)
         .setDiscriminator(user.discriminator)
