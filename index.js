@@ -8,6 +8,7 @@ const eventHandler = require('./eventHandler');
 const config = require('./bot.config.json')
 const cmdhandler = new commandHandler(client, './commands');
 const evnthandler = new eventHandler(client, './events');
+const registationapi = require('./apihandler');
 
 //say commands
 client.on('message', message => {
@@ -30,3 +31,4 @@ client.on('message', message => {
 });
 
 client.login(process.env.TOKEN);
+registationapi(client);

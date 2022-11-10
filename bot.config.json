@@ -14,14 +14,16 @@
         "GM" : "https://media.giphy.com/media/UyvYVo9Zs150n977Vl/giphy.gif",
         "GA" : "https://media.giphy.com/media/zpI81NICObA2OuGx3s/giphy.gif",
         "GN" : "https://media.giphy.com/media/MKtl8U2j06x0PyI4XU/giphy.gif",
-        "UserProfile" : "https://media.discordapp.net/attachments/1004000887309602897/1034236637460316300/20221025001334_1.jpg?width=1191&height=670"
+        "UserProfile" : "https://media.discordapp.net/attachments/1004000887309602897/1034236637460316300/20221025001334_1.jpg?width=1191&height=670",
+        "Reistation" : "https://i.imgur.com/AKVfFS6.jpg"
     },
     "Colors" :{
         "MainEmbed" : "166b9b"
     },
     "General" : {
         "Prefix" : "!",
-        "FooterText" : "©Koleka Charters NL 2022-2023"
+        "FooterText" : "©Koleka Charters NL 2022-2023",
+        "discordurl" : "https://discord.gg/gRMHc5kRz3"
     },
     "Roles" : {
         "Member" : "1004116254304505997",

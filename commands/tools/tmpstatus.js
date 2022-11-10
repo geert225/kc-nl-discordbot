@@ -37,20 +37,20 @@ module.exports = {
                 if(serverState.game == args[0].toUpperCase() && !serverState.event){
                     fields.push({
                         name: `${serverState.name}  ` + ((serverState.online) ? '[:green_circle:]' : '[:red_circle:]'),
-                        value: `${serverState.players} / ${serverState.maxplayers}`
+                        value: `Online: ${serverState.players} / ${serverState.maxplayers} \n Queue: ${serverState.queue}`
                     })
                 }
             }else{
                 if(serverState.event){
                     fields.push({
                         name: `${serverState.name}  ` + ((serverState.online) ? '[:green_circle:]' : '[:red_circle:]'),
-                        value: `${serverState.players} / ${serverState.maxplayers}`
+                        value: `Online: ${serverState.players} / ${serverState.maxplayers} \n Queue: ${serverState.queue}`
                     })
                 }
             }
         });
 
-        const embed = new Discord.MessageEmbed()
+        const embed = new MessageEmbed()
         .setTitle(`Truckersmp ${title} server status`)
         .setColor(config.Colors.MainEmbed)
         .setFooter(config.General.FooterText, '')
