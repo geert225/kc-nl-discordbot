@@ -1,5 +1,8 @@
 {
     "color": "#c2c2c2",
     "useimg": true,
-    "img": "https://cdn.discordapp.com/attachments/699698617602277488/1029087022394118214/b1.png"
+    "img": "https://cdn.discordapp.com/attachments/699698617602277488/1029087022394118214/b1.png",
+    "name": "comic",
+    "x" : 1,
+    "default" : false
 }

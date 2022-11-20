@@ -1,5 +1,6 @@
 const userdata = require("../../userdata.json");
 const { updateFile } = require("../../functions/updateFile");
+const { getcards } = require("./cardstyles/allcards");
 
 module.exports = {
   name: "setcardtype",
@@ -19,43 +20,34 @@ module.exports = {
     if (!args.length)
       return message.channel
         .send(
-          ":exclamation:You need to specify a type! The type's that you can choose are: **default**, **comic**, **sunshine**, **gold**, **kcnl**."
+          ":exclamation:You need to specify a type!"
         )
         .then((msg) => {
           msg.delete({ timeout: 10000 });
         });
     let [type] = args;
-    if (type === "default") {
-      message.channel.send(
-        ":white_check_mark:set your card theme to: **default**"
-      );
-      userdata[message.author.id].cardtype = 0;
-      updateFile('./userdata.json', userdata);
-    } else if (type === "comic") {
-      message.channel.send(
-        ":white_check_mark:set your card theme to: **comic**"
-      );
-      userdata[message.author.id].cardtype = 1;
-      updateFile('./userdata.json', userdata);
-    } else if (type === "sunshine") {
-      message.channel.send(
-        ":white_check_mark:set your card theme to: **sunshine**"
-      );
-      userdata[message.author.id].cardtype = 2;
-      updateFile('./userdata.json', userdata);
-    } else if (type === "kcnl") {
-      message.channel.send(
-        ":white_check_mark:set your card theme to: **KOLEKA**"
-      );
-      userdata[message.author.id].cardtype = 3;
-      updateFile('./userdata.json', userdata);
-    } else
+
+    const cards = getcards();
+    let found = false;
+
+    for (let i = 0; i < cards.length; i++) {
+      if(type == cards[i].name){
+        found = true;
+        userdata[message.author.id].cardtype = cards[i].x;
+        updateFile('./userdata.json', userdata);
+        message.channel.send(
+          `:white_check_mark:set your card theme to: **${cards[i].name}**`
+        );
+      }
+    }
+    if(!found){
       message.channel
-        .send(
-          ":exclamation:You need to specify a correct type! The type's that you can choose are: **default**, **comic**, **sunshine**."
-        )
-        .then((msg) => {
-          msg.delete({ timeout: 10000 });
-        });
+      .send(
+        ":exclamation:You need to specify a correct type!"
+      )
+      .then((msg) => {
+        msg.delete({ timeout: 10000 });
+      });
+    }
   },
 };

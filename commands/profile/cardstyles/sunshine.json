@@ -1,5 +1,8 @@
 {
     "color": "#FFFFFF",
     "useimg": true,
-    "img": "https://cdn.discordapp.com/attachments/699698617602277488/1029087059404660766/b2.png"
+    "img": "https://cdn.discordapp.com/attachments/699698617602277488/1029087059404660766/b2.png",
+    "name": "sunshine",
+    "x" : 2,
+    "default" : false
 }

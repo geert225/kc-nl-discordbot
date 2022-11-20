@@ -1,5 +1,8 @@
 {
     "color": "#166b9b",
     "useimg": false,
-    "img": ""
+    "img": "",
+    "name": "default",
+    "x" : 0,
+    "default" : true
 }

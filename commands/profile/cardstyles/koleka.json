@@ -1,5 +1,8 @@
 {
     "color": "#FFFFFF",
     "useimg": true,
-    "img": "https://media.discordapp.net/attachments/1004000887309602897/1034236637460316300/20221025001334_1.jpg"
+    "img": "https://media.discordapp.net/attachments/1004000887309602897/1034236637460316300/20221025001334_1.jpg",
+    "name": "koleka",
+    "x" : 3,
+    "default" : false
 }

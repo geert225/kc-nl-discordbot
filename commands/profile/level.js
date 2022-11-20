@@ -2,11 +2,7 @@ const canvacord = require("canvacord");
 const { MessageAttachment } = require("discord.js");
 const config = require("../../bot.config.json");
 const userdata = require("../../userdata.json");
-
-const cardtype_comic = require("./cardstyles/comic.json");
-const cardtype_default = require("./cardstyles/default.json");
-const cardtype_sunshine = require("./cardstyles/sunshine.json");
-const cardtype_koleka = require("./cardstyles/koleka.json");
+const { getcards } = require("./cardstyles/allcards");
 
 module.exports = {
   name: "level",
@@ -32,22 +28,18 @@ module.exports = {
       return;
     }
     let markup;
-    switch (userdata[user.id].cardtype) {
-      case 0:
-        markup = cardtype_default;
-        break;
-      case 1:
-        markup = cardtype_comic;
-        break;
-      case 2:
-        markup = cardtype_sunshine;
-        break;
-      case 3:
-        markup = cardtype_koleka;
-        break;
-      default:
-        return;
+
+    let cards = getcards();
+    let found = false;
+    for (let i = 0; i < cards.length; i++) {
+      if(userdata[user.id].cardtype == cards[i].x){
+        markup = cards[i];
+        found = true;
+      }
+      
     }
+    if(!found) return;
+
     let rank;
     if (markup.useimg) {
       rank = new canvacord.Rank()
